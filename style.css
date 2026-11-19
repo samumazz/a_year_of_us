@@ -1,0 +1,407 @@
+:root {
+    --bg: #030305;
+    --surface: rgba(255, 255, 255, 0.025);
+    --border: rgba(255, 255, 255, 0.08);
+    --gold: #e8d89c;
+    --white: #ffffff;
+    --muted: #7a7a8c;
+}
+
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg);
+    color: var(--white);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* SFONDO GENERATIVO */
+#cosmos {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* GRAFICHE SVG MONOLINE */
+.icon-svg {
+    width: 18px;
+    height: 18px;
+    stroke: currentColor;
+    stroke-width: 1.4;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.icon-heart-solid {
+    fill: var(--white);
+    stroke: none;
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.4));
+}
+
+.icon-gold {
+    color: var(--gold);
+}
+
+/* PORTALE INIZIALE */
+#portal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), visibility 1.2s;
+}
+
+#portal.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.dirac-badge {
+    font-family: "Times New Roman", Times, serif;
+    font-style: italic;
+    font-size: 1.5rem;
+    color: var(--gold);
+    letter-spacing: 2px;
+    margin-bottom: 45px;
+    opacity: 0.9;
+    text-shadow: 0 0 25px rgba(232, 216, 156, 0.35);
+}
+
+.core-btn {
+    width: 115px;
+    height: 115px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.5s ease;
+    animation: breathe 3.5s infinite ease-in-out;
+}
+
+.core-btn::before {
+    content: '';
+    position: absolute;
+    width: 138px;
+    height: 138px;
+    border-radius: 50%;
+    border: 1px dashed rgba(232, 216, 156, 0.2);
+    animation: spinSlow 25s linear infinite;
+}
+
+.core-btn:hover {
+    transform: scale(1.08);
+    border-color: var(--gold);
+}
+
+.portal-hint {
+    margin-top: 28px;
+    font-size: 0.65rem;
+    letter-spacing: 4px;
+    color: var(--muted);
+}
+
+@keyframes breathe {
+    0%, 100% { box-shadow: 0 0 25px rgba(255, 255, 255, 0.04); }
+    50% { box-shadow: 0 0 50px rgba(232, 216, 156, 0.25); }
+}
+
+@keyframes spinSlow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* CONTENUTO PRINCIPALE */
+main {
+    position: relative;
+    z-index: 10;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 90px 20px 130px 20px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+main.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.tag {
+    font-size: 0.65rem;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 14px;
+}
+
+h1 {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 200;
+    letter-spacing: -1px;
+    margin: 0 0 20px 0;
+}
+
+/* HERO & CONTATORE */
+.hero {
+    text-align: center;
+    margin-bottom: 110px;
+}
+
+.subtitle {
+    color: var(--muted);
+    max-width: 480px;
+    margin: 0 auto;
+    font-weight: 300;
+}
+
+.stats-bar {
+    display: inline-grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    backdrop-filter: blur(20px);
+    padding: 22px 34px;
+    border-radius: 22px;
+    margin-top: 35px;
+}
+
+.stat-item span {
+    display: block;
+}
+
+.stat-val {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--gold);
+}
+
+.stat-lbl {
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--muted);
+    margin-top: 5px;
+}
+
+/* GALLERIA 12 MESI */
+.gallery-header {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.section-title {
+    font-weight: 300;
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+.header-emblems {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    margin-top: 16px;
+    color: var(--gold);
+    opacity: 0.8;
+}
+
+.grid-12 {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 24px;
+    margin-bottom: 130px;
+}
+
+.photo-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    padding: 14px;
+    backdrop-filter: blur(12px);
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.45s;
+    position: relative;
+    overflow: hidden;
+}
+
+.photo-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    border-color: rgba(232, 216, 156, 0.45);
+}
+
+.img-box {
+    width: 100%;
+    aspect-ratio: 4/5;
+    border-radius: 14px;
+    overflow: hidden;
+    background: #08080c;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.photo-card:hover .img-box img {
+    transform: scale(1.06);
+}
+
+.card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 14px;
+    padding: 0 6px;
+}
+
+.month-num {
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    color: var(--gold);
+    text-transform: uppercase;
+}
+
+.month-emblem {
+    color: rgba(255, 255, 255, 0.65);
+    display: flex;
+    align-items: center;
+}
+
+/* SEZIONE EQUAZIONE DI DIRAC */
+.physics-box {
+    text-align: center;
+    padding: 75px 30px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.015) 0%, rgba(232, 216, 156, 0.04) 50%, rgba(255, 255, 255, 0.015) 100%);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 130px;
+    border-radius: 32px;
+    position: relative;
+}
+
+.dirac-formula {
+    font-family: "Times New Roman", Times, serif;
+    font-style: italic;
+    font-size: clamp(2.2rem, 6vw, 3.8rem);
+    color: var(--white);
+    text-shadow: 0 0 35px rgba(232, 216, 156, 0.45);
+    margin: 22px 0;
+    letter-spacing: 3px;
+}
+
+.physics-desc {
+    max-width: 540px;
+    margin: 0 auto;
+    font-size: 0.95rem;
+    color: var(--muted);
+    line-height: 1.75;
+    font-weight: 300;
+}
+
+.highlight-white {
+    color: var(--white);
+}
+
+/* LETTERA FINALE */
+.letter-container {
+    max-width: 640px;
+    margin: 0 auto;
+    background: rgba(10, 10, 14, 0.8);
+    border: 1px solid rgba(232, 216, 156, 0.22);
+    backdrop-filter: blur(25px);
+    padding: clamp(32px, 6vw, 64px);
+    border-radius: 32px;
+    box-shadow: 0 30px 90px rgba(0, 0, 0, 0.85);
+    position: relative;
+}
+
+.letter-title {
+    font-weight: 300;
+    font-size: 1.7rem;
+    margin: 0 0 30px 0;
+}
+
+.letter-body {
+    font-size: 1.05rem;
+    line-height: 1.9;
+    color: #dcdce5;
+    font-weight: 300;
+}
+
+.letter-body p {
+    margin-bottom: 22px;
+}
+
+.letter-closing {
+    color: var(--white);
+    font-weight: 400;
+}
+
+.signature {
+    margin-top: 42px;
+    padding-top: 26px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--gold);
+    font-size: 0.85rem;
+    letter-spacing: 3px;
+}
+
+.sig-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+@media (max-width: 600px) {
+    .stats-bar {
+        grid-template-columns: repeat(2, 1fr);
+        width: 100%;
+    }
+    .grid-12 {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+    .photo-card {
+        padding: 8px;
+        border-radius: 16px;
+    }
+}

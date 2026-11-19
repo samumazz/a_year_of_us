@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>365 Days // Entanglement</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- LIBRERIA GRAFICHE VETTORIALI (ZERO EMOJI) -->
+    <svg style="display: none;">
+        <symbol id="svg-heart" viewBox="0 0 24 24">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </symbol>
+        <symbol id="svg-moon" viewBox="0 0 24 24">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </symbol>
+        <symbol id="svg-bear" viewBox="0 0 24 24">
+            <circle cx="6.5" cy="6.5" r="2.5"/>
+            <circle cx="17.5" cy="6.5" r="2.5"/>
+            <circle cx="12" cy="13" r="6.5"/>
+            <circle cx="9.8" cy="11.5" r="0.6" fill="currentColor"/>
+            <circle cx="14.2" cy="11.5" r="0.6" fill="currentColor"/>
+            <ellipse cx="12" cy="14.5" rx="2" ry="1.5"/>
+            <path d="M12 13.5v1"/>
+        </symbol>
+        <symbol id="svg-star" viewBox="0 0 24 24">
+            <path d="M12 2L14.4 9.6L22 12L14.4 14.4L12 22L9.6 14.4L2 12L9.6 9.6L12 2Z"/>
+        </symbol>
+    </svg>
+
+    <canvas id="cosmos"></canvas>
+
+    <!-- AUDIO CONTINUO (WONDERWALL) -->
+    <audio id="bg-music" loop>
+        <source src="anno.mp3" type="audio/mp3">
+    </audio>
+
+    <!-- PORTALE INIZIALE -->
+    <div id="portal">
+        <span class="tag">365 Days // Edition</span>
+        <div class="dirac-badge">(i∂̸ − m)ψ = 0</div>
+        <div class="core-btn" onclick="unlockUniverse()">
+            <svg class="icon-svg icon-heart-solid" style="width: 34px; height: 34px;"><use href="#svg-heart"/></svg>
+        </div>
+        <span class="portal-hint">TOCCA IL CUORE PER ENTRARE</span>
+    </div>
+
+    <!-- ESPERIENZA PRINCIPALE -->
+    <main id="main-content">
+        
+        <!-- HERO -->
+        <section class="hero">
+            <span class="tag">Chapter I // 1 Year</span>
+            <h1>Un anno intero nella tua orbita.</h1>
+            <p class="subtitle">
+                Dodici mesi, milioni di secondi e un solo punto fermo: noi due.
+            </p>
+
+            <div class="stats-bar">
+                <div class="stat-item"><span class="stat-val">12</span><span class="stat-lbl">Mesi</span></div>
+                <div class="stat-item"><span class="stat-val">365</span><span class="stat-lbl">Giorni</span></div>
+                <div class="stat-item"><span class="stat-val">8.760</span><span class="stat-lbl">Ore</span></div>
+                <div class="stat-item"><span class="stat-val">∞</span><span class="stat-lbl">Noi</span></div>
+            </div>
+        </section>
+
+        <!-- GALLERIA DEI 12 MESI -->
+        <section>
+            <div class="gallery-header">
+                <span class="tag">I Nostri Frammenti</span>
+                <h2 class="section-title">365 giorni in 12 scatti</h2>
+                <div class="header-emblems">
+                    <svg class="icon-svg"><use href="#svg-bear"/></svg>
+                    <svg class="icon-svg"><use href="#svg-star"/></svg>
+                    <svg class="icon-svg"><use href="#svg-moon"/></svg>
+                </div>
+            </div>
+
+            <div class="grid-12">
+                <div class="photo-card"><div class="img-box"><img src="1.jpg" alt="Mese 1"></div><div class="card-meta"><span class="month-num">Mese 01</span><span class="month-emblem"><svg class="icon-svg icon-heart-solid" style="width:14px;height:14px;"><use href="#svg-heart"/></svg></span></div></div>
+                <div class="photo-card"><div class="img-box"><img src="2.jpg" alt="Mese 2"></div><div class="card-meta"><span class="month-num">Mese 02</span><span class="month-emblem icon-gold"><svg class="icon-svg"><use href="#svg-moon"/></svg></span></div></div>
+                <div class="photo-card"><div class="img-box"><img src="3.jpg" alt="Mese 3"></div><div class="card-meta"><span class="month-num">Mese 03</span><span class="month-emblem"><svg class="icon-svg"><use href="#svg-bear"/></svg></span></div></div>
+                <div class="photo-card"><div class="img-box"><img src="4.jpg" alt="Mese 4"></div><div class="card-meta"><span class="month-num">Mese 04</span><span class="month-emblem icon-gold"><svg class="icon-svg"><use href="#svg-star"/></svg></span></div></div>
+                <div class="photo-card"><div class="img-box"><img src="5.jpg" alt="Mese 5"></div><div class="card-meta"><span class="month-num">Mese 05</span><span class="month-emblem"><svg class="icon-svg icon-heart-solid" style="width:14px;height:14px;"><use href="#svg-heart"/></svg></span></div></div>
+                <div class="photo-card"><div class="img-box"><img src="6.jpg" alt="Mese 6"></div><div class="card-meta"><span class="month-num">Mese 06</span><span class="month-emblem icon-gold"><svg class="icon-svg"><use href="#svg-moon"/></svg></span></div></div>
+                <div class="photo-card"><div class="img-box"><img src="7.jpg" alt="Mese 7"></div><div class="card-meta"><span class="month-num">Mese 07</span><span class="month-emblem"><svg class="icon-svg"><use href="#svg-bear"/></svg></span></div></div>
+                <div class="photo-card"><div class="img-box"><img src="8.jpg" alt="Mese 8"></div><div class="card-meta"><span class="month-num">Mese 08</span><span class="month-emblem icon-gold"><svg class="icon-svg"><use href="#svg-star"/></svg></span></div></div>
+                <div class="photo-card"><div class="img-box"><img src="9.jpg" alt="Mese 9"></div><div class="card-meta"><span class="month-num">Mese 09</span><span class="month-emblem"><svg class="icon-svg icon-heart-solid" style="width:14px;height:14px;"><use href="#svg-heart"/></svg></span></div></div>
+                <div class="photo-card"><div class="img-box"><img src="10.jpg" alt="Mese 10"></div><div class="card-meta"><span class="month-num">Mese 10</span><span class="month-emblem icon-gold"><svg class="icon-svg"><use href="#svg-moon"/></svg></span></div></div>
+                <div class="photo-card"><div class="img-box"><img src="11.jpg" alt="Mese 11"></div><div class="card-meta"><span class="month-num">Mese 11</span><span class="month-emblem"><svg class="icon-svg"><use href="#svg-bear"/></svg></span></div></div>
+                <div class="photo-card"><div class="img-box"><img src="12.jpg" alt="Mese 12"></div><div class="card-meta"><span class="month-num">Mese 12</span><span class="month-emblem"><svg class="icon-svg icon-heart-solid" style="width:14px;height:14px;"><use href="#svg-heart"/></svg></span></div></div>
+            </div>
+        </section>
+
+        <!-- EQUAZIONE DI DIRAC -->
+        <section class="physics-box">
+            <span class="tag">Quantum Entanglement</span>
+            <div class="dirac-formula">(i∂̸ − m)ψ = 0</div>
+            <p class="physics-desc">
+                In fisica significa che se due sistemi interagiscono tra loro per un certo periodo di tempo e poi vengono separati, non possono più essere descritti come due sistemi distinti: qualunque cosa accada a uno, influenza istantaneamente l'altro. <br>
+                <span class="highlight-white">Siamo legati, ovunque siamo.</span>
+            </p>
+        </section>
+
+        <!-- LETTERA FINALE (LA TUA VERSIONE) -->
+        <section class="letter-container">
+            <span class="tag">Per il nostro primo anno</span>
+            <h2 class="letter-title">A te, che sei la mia parte preferita.</h2>
+            
+            <div class="letter-body">
+                <p>
+                    Se mi guardo indietro e penso a dove eravamo esattamente un anno fa, mi rendo conto di quanto tutto sia cambiato e, allo stesso tempo, di quanto fosse già scritto.
+                </p>
+                <p>
+                    Non sono molto bravo con le parole e lo sa, ma in questa lettera proverò ad impegnarmi come non mai.
+                </p>
+                <p>
+                    In fisica c'è una formula, quella di Dirac, che descrive l'entanglement: dice che quando due sistemi interagiscono a fondo per un certo tempo, restano connessi per sempre, indipendentemente dalla distanza. Qualunque cosa accada a uno, influenza istantaneamente l'altro. Ecco, credo che noi siamo esattamente questo. Da quel primo giorno, ogni risata, ogni silenzio, ogni piccolo traguardo e ogni tempesta superata ci hanno legato in un modo che va oltre la semplice abitudine o la coincidenza. Siamo entrati l'uno nell'orbita dell'altra e non ne siamo più usciti.
+                </p>
+                <p>
+                    In questi 365 giorni ho imparato a conoscere ogni tua sfumatura. Ho imparato ad amare le tue lune storte, quei momenti in cui il mondo fuori è troppo rumoroso e trovi rifugio nei tuoi spazi, e ho capito che non c'è posto al mondo in cui preferirei stare se non accanto a te, a proteggerti e a guardarti mentre sorridi.
+                </p>
+                <p>
+                    Non mi servivano grandi effetti speciali o sorprese eclatanti per questo anno, perché la verità è che la sorpresa più bella sei tu. Ogni singolo giorno. Mi hai insegnato cosa significa prendersi cura di qualcuno genuinamente, senza voler nulla in cambio, sentirsi a casa anche quando si è lontani da casa, e scoprire che la felicità non è un concetto astratto, ma ha il tuo viso, la tua voce e il modo in cui mi guardi.
+                </p>
+                <p>
+                    Grazie per esserci stata nei giorni leggeri e soprattutto in quelli più difficili, quando tutto sembrava pesante e tu sei stata la mia ancora di salvezza, il faro che mi guidava nella tempesta. Grazie per essere esattamente come sei, con la tua dolcezza, la tua forza e quella testa un po’ scema che rende ogni giorno diverso dal precedente. Non cambiare mai.
+                </p>
+                <p>
+                    Questo primo anno è solo il capitolo uno di tutto quello che scriveremo insieme. Ti amo profondamente, in tutte le linee del tempo possibili.
+                </p>
+                <p class="letter-closing" style="font-weight: 500; letter-spacing: 1px;">
+                    BUONNN PRIMOOO ANNIVERSARIOOO AMOREEE MIOOO!!!🤍🤍🤍
+                </p>
+            </div>
+
+            <div class="signature">
+                <span>365 / ∞</span>
+                <div class="sig-right">
+                    <svg class="icon-svg"><use href="#svg-bear"/></svg>
+                    <svg class="icon-svg"><use href="#svg-moon"/></svg>
+                    <svg class="icon-svg icon-heart-solid" style="width:16px;height:16px;"><use href="#svg-heart"/></svg>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
